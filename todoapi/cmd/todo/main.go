@@ -11,9 +11,9 @@ const todoFileName = ".todo.json"
 
 func main() {
 	//parsing command flags
-	task := flag.String("task", "", "Task to be included in the todo list")
-	list := flag.Bool("list", false, "List all tasks")
-	complete := flag.Int("complete", 0, "item to be completed")
+	task := flag.String("-task", "", "Task to be included in the todo list")
+	list := flag.Bool("-list", false, "List all tasks")
+	complete := flag.Int("-complete", 0, "item to be completed")
 
 	flag.Parsed()
 
@@ -53,7 +53,7 @@ func main() {
 			os.Exit(1)
 		}
 	default:
-		fmt.Fprintln(os.Stdin, "Invalid option")
+		fmt.Fprintln(os.Stderr, "Invalid option")
 		os.Exit(1)
 	}
 
